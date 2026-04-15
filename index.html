@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timelines Productions</title>
+  <meta
+    name="description"
+    content="Timelines Productions creates ad films, brand videos, and social media content with one promise — quality work delivered on time."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #060606;
+      --bg-soft: #101010;
+      --panel: rgba(255,255,255,0.06);
+      --panel-border: rgba(255,255,255,0.1);
+      --text: #ffffff;
+      --muted: #c8c8c8;
+      --red: #d90d0d;
+      --red-hover: #f01515;
+      --white: #ffffff;
+      --radius: 24px;
+      --radius-sm: 18px;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --container: 1220px;
+      --transition: 0.35s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img,
+    video,
+    iframe {
+      max-width: 100%;
+      display: block;
+    }
+
+    button {
+      border: none;
+      background: none;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 90px 0;
+      position: relative;
+    }
+
+    .section-title-wrap {
+      max-width: 760px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #ffb3b3;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: var(--red);
+      display: inline-block;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 5vw, 54px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .btn {
+      min-height: 54px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition);
+      letter-spacing: 0.02em;
+      text-align: center;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(217,13,13,0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--red-hover);
+    }
+
+    .btn-secondary {
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.28);
+    }
+
+    .btn-light {
+      background: #fff;
+      color: #111;
+    }
+
+    .btn-light:hover {
+      background: #f3f3f3;
+    }
+
+    /* HEADER */
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+      border-bottom: 1px solid transparent;
+      transition: all var(--transition);
+    }
+
+    .site-header.scrolled {
+      background: rgba(6, 6, 6, 0.86);
+      backdrop-filter: blur(14px);
+      border-color: rgba(255,255,255,0.08);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+
+    .nav {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      z-index: 1002;
+    }
+
+    .logo-mark {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 0 8px rgba(217,13,13,0.15);
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: #ededed;
+      font-size: 14px;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #fff;
+      font-size: 22px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 86px;
+      left: 16px;
+      right: 16px;
+      background: rgba(12,12,12,0.96);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 18px;
+      display: none;
+      z-index: 999;
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
+
+    .mobile-menu.active {
+      display: block;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 14px 4px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 140px 0 90px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .hero-video-wrap {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .hero-video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.42) contrast(1.08);
+      transform: scale(1.03);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.65) 45%, rgba(0,0,0,0.9) 100%),
+        radial-gradient(circle at center, rgba(217,13,13,0.18) 0%, rgba(217,13,13,0.02) 36%, transparent 62%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      margin-bottom: 22px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-badge span {
+      width: 8px;
+      height: 8px;
+      background: var(--red);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 84px);
+      line-height: 0.98;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      max-width: 900px;
+    }
+
+    .hero h1 .accent {
+      color: var(--red);
+    }
+
+    .hero p {
+      max-width: 720px;
+      color: #ededed;
+      font-size: clamp(16px, 2vw, 19px);
+      margin: 0 auto 30px;
+    }
+
+    .hero-stats {
+      width: 100%;
+      max-width: 860px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 22px 18px;
+      backdrop-filter: blur(10px);
+      text-align: center;
+    }
+
+    .stat-card h3 {
+      font-size: 25px;
+      margin-bottom: 6px;
+      line-height: 1;
+    }
+
+    .stat-card p {
+      margin: 0;
+      color: #d5d5d5;
+      font-size: 13px;
+      max-width: none;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      left: 50%;
+      bottom: 26px;
+      transform: translateX(-50%);
+      z-index: 3;
+      color: #fff;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0.9;
+    }
+
+    .hero-scroll::after {
+      content: "";
+      width: 22px;
+      height: 38px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.3);
+      display: inline-block;
+      background: radial-gradient(circle, #fff 0 2px, transparent 3px) center 8px/100% 100% no-repeat;
+      animation: scrollAnim 1.7s infinite;
+    }
+
+    @keyframes scrollAnim {
+      0% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(4px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0.7; }
+    }
+
+    /* WORK */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .video-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), border-color var(--transition);
+    }
+
+    .video-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,255,255,0.16);
+    }
+
+    .video-embed {
+      position: relative;
+      padding-top: 56.25%;
+      background: #111;
+    }
+
+    .video-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-info {
+      padding: 18px 18px 22px;
+      text-align: left;
+    }
+
+    .video-info h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .video-info p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .service-card {
+      padding: 30px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      overflow: hidden;
+      text-align: left;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: -55px;
+      right: -55px;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: rgba(217,13,13,0.12);
+      filter: blur(10px);
+    }
+
+    .service-no {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #ffb8b8;
+      margin-bottom: 14px;
+    }
+
+    .service-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* WHY US */
+    .why-wrap {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+    }
+
+    .why-left,
+    .why-right {
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+    }
+
+    .why-left h3 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .why-left > p {
+      color: var(--muted);
+    }
+
+    .why-points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .why-point {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .why-point h4 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .why-point p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .quote-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background:
+        linear-gradient(180deg, rgba(217,13,13,0.18), rgba(255,255,255,0.02)),
+        #0e0e0e;
+    }
+
+    .quote-card h3 {
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+    }
+
+    .quote-card p {
+      color: #dddddd;
+      font-size: 15px;
+    }
+
+    /* TEAM */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .team-card {
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .team-image {
+      aspect-ratio: 4 / 4.2;
+      background: #111;
+      overflow: hidden;
+    }
+
+    .team-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition);
+    }
+
+    .team-card:hover .team-image img {
+      transform: scale(1.05);
+    }
+
+    .team-info {
+      padding: 18px 18px 22px;
+      text-align: left;
+    }
+
+    .team-info h3 {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .team-role {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #ffb8b8;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .team-info p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* CTA */
+    .cta-box {
+      padding: 44px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at top right, rgba(217,13,13,0.2), transparent 32%),
+        linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box h2 {
+      font-size: clamp(30px, 5vw, 56px);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .cta-box p {
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      padding: 26px 0 38px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 20px;
+    }
+
+    .footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-wrap p,
+    .footer-wrap a {
+      color: #bdbdbd;
+      font-size: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    /* FLOATING WHATSAPP */
+    .floating-whatsapp {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 999;
+    }
+
+    .floating-whatsapp a {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--red);
+      color: #fff;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 15px 30px rgba(217,13,13,0.35);
+      transition: transform var(--transition), background var(--transition);
+    }
+
+    .floating-whatsapp a:hover {
+      transform: translateY(-3px);
+      background: var(--red-hover);
+    }
+
+    /* REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .work-grid,
+      .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .services-grid,
+      .why-wrap,
+      .cta-box {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-actions {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .nav-links,
+      .nav-actions .header-cta {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 130px 0 70px;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+      .hero h1 {
+        max-width: 100%;
+      }
+
+      .hero p {
+        max-width: 100%;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+      }
+
+      .why-points {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--container), calc(100% - 22px));
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+
+      .section-title-wrap {
+        margin-bottom: 30px;
+      }
+
+      .section-title {
+        font-size: 30px;
+        line-height: 1.12;
+      }
+
+      .section-desc {
+        font-size: 14px;
+      }
+
+      .hero {
+        padding: 118px 0 58px;
+      }
+
+      .hero-badge {
+        font-size: 10px;
+        padding: 10px 14px;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+        line-height: 1.02;
+        margin-bottom: 14px;
+      }
+
+      .hero p {
+        font-size: 14px;
+        line-height: 1.7;
+        margin-bottom: 24px;
+        max-width: 95%;
+      }
+
+      .btn-group {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-group .btn {
+        width: 100%;
+      }
+
+      .hero-stats {
+        margin-top: 24px;
+        gap: 12px;
+      }
+
+      .stat-card {
+        padding: 18px 14px;
+      }
+
+      .stat-card h3 {
+        font-size: 22px;
+      }
+
+      .work-grid,
+      .services-grid,
+      .team-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .video-card,
+      .service-card,
+      .team-card,
+      .why-left,
+      .why-right {
+        border-radius: 20px;
+      }
+
+      .service-card,
+      .why-left,
+      .why-right {
+        padding: 22px 18px;
+      }
+
+      .video-info,
+      .team-info {
+        padding: 16px 16px 18px;
+      }
+
+      .video-info h3,
+      .service-card h3,
+      .team-info h3 {
+        font-size: 18px;
+      }
+
+      .video-info p,
+      .service-card p,
+      .team-info p,
+      .why-point p,
+      .quote-card p,
+      .cta-box p {
+        font-size: 14px;
+      }
+
+      .cta-box {
+        padding: 26px 18px;
+        border-radius: 22px;
+        gap: 18px;
+      }
+
+      .cta-box h2 {
+        font-size: 30px;
+      }
+
+      .cta-actions {
+        width: 100%;
+      }
+
+      .cta-actions .btn {
+        width: 100%;
+      }
+
+      .footer-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-scroll {
+        display: none;
+      }
+
+      .floating-whatsapp a {
+        width: 54px;
+        height: 54px;
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <nav class="nav">
+        <a href="#home" class="logo">
+          <span class="logo-mark"></span>
+          <span>Timelines Productions</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#services">What We Do</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a
+            class="btn btn-primary header-cta"
+            href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=Hi%2C%20I%20came%20across%20Timelines%20Productions%20and%20would%20like%20to%20discuss%20a%20project."
+            target="_blank"
+            rel="noopener"
+          >
+            Contact Us
+          </a>
+          <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+        </div>
+      </nav>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#work">Work</a>
+      <a href="#services">What We Do</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+      <a
+        href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=Hi%2C%20I%20came%20across%20Timelines%20Productions%20and%20would%20like%20to%20discuss%20a%20project."
+        target="_blank"
+        rel="noopener"
+      >
+        WhatsApp Us
+      </a>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-video-wrap">
+      <video autoplay muted loop playsinline>
+        <source src="hero-showreel.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="container">
+      <div class="hero-content reveal">
+        <div class="hero-badge">
+          <span></span>
+          Premium video production delivered on time
+        </div>
+
+        <h1>
+          We create <br> videos that <br>    <span class="accent">look premium</span><br>
+          and arrive <span class="accent">on timeline</span>
+        </h1>
+
+        <p>
+          Ad films, brand videos, social media content, and commercial production
+          with clean storytelling, fast execution, and reliable delivery.
+        </p>
+
+        <div class="btn-group">
+          <a href="#work" class="btn btn-primary">View Work</a>
+          <a
+            href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=Hi%2C%20I%20came%20across%20Timelines%20Productions%20and%20would%20like%20to%20discuss%20a%20project."
+            target="_blank"
+            rel="noopener"
+            class="btn btn-secondary"
+          >
+            Contact Us
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-card">
+            <h3>Fast</h3>
+            <p>Efficient production without losing quality.</p>
+          </div>
+          <div class="stat-card">
+            <h3>Sharp</h3>
+            <p>Clean visuals, better storytelling, premium finish.</p>
+          </div>
+          <div class="stat-card">
+            <h3>Reliable</h3>
+            <p>We fix what most production houses ignore — timelines.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#work" class="hero-scroll">Scroll</a>
+  </section>
+
+  <section class="section" id="work">
+    <div class="container">
+      <div class="section-title-wrap reveal">
+        <div class="eyebrow">Selected Work</div>
+        <h2 class="section-title">Our Work</h2>
+        <p class="section-desc">
+          A curated selection of projects across ad films, commercial videos,
+          social content, and brand storytelling.
+        </p>
+      </div>
+
+      <div class="work-grid">
+        <article class="video-card reveal">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" title="Project 1" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <h3>Brand Campaign Film</h3>
+            <p>Strong storytelling and polished visuals built for impact and recall.</p>
+          </div>
+        </article>
+
+        <article class="video-card reveal">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" title="Project 2" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <h3>Commercial Video</h3>
+            <p>Clean execution with tight edits and a premium brand feel.</p>
+          </div>
+        </article>
+
+        <article class="video-card reveal">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3" title="Project 3" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <h3>Social Media Content</h3>
+            <p>Fast, engaging, digital-first content designed for modern platforms.</p>
+          </div>
+        </article>
+
+        <article class="video-card reveal">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_4" title="Project 4" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <h3>Product Ad Film</h3>
+            <p>Visual storytelling that highlights the product with clarity and style.</p>
+          </div>
+        </article>
+
+        <article class="video-card reveal">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_5" title="Project 5" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <h3>Launch Video</h3>
+            <p>Launch-ready content built to create momentum and attention.</p>
+          </div>
+        </article>
+
+        <article class="video-card reveal">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_6" title="Project 6" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <h3>Digital Brand Story</h3>
+            <p>Cinematic brand communication for digital campaigns and growth.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-title-wrap reveal">
+        <div class="eyebrow">What We Do</div>
+        <h2 class="section-title">Creative production built for brands that need speed and quality</h2>
+        <p class="section-desc">
+          We focus on clear outcomes — stronger brand presence, better communication,
+          and content that gets delivered when it is actually needed.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-no">01</div>
+          <h3>Ad Films</h3>
+          <p>Campaign-focused films that give your brand a bold and memorable visual identity.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-no">02</div>
+          <h3>Brand Videos</h3>
+          <p>Clean, modern storytelling that makes your brand look sharp and trustworthy.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-no">03</div>
+          <h3>Social Media Content</h3>
+          <p>Short-form content built to capture attention, increase engagement, and stay active online.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-no">04</div>
+          <h3>Commercial & Digital Production</h3>
+          <p>End-to-end video production for launches, campaigns, promos, and digital-first growth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="why-us">
+    <div class="container">
+      <div class="section-title-wrap reveal">
+        <div class="eyebrow">Why Us</div>
+        <h2 class="section-title">We respect the one thing most production teams ignore — the timeline</h2>
+        <p class="section-desc">
+          Great production is not only about the final output. It is also about smooth execution,
+          strong communication, and delivering at the right moment.
+        </p>
+      </div>
+
+      <div class="why-wrap">
+        <div class="why-left reveal">
+          <h3>What makes us different</h3>
+          <p>
+            Timelines Productions is built around creative discipline. We keep the process clean,
+            the communication clear, and the delivery on track.
+          </p>
+
+          <div class="why-points">
+            <div class="why-point">
+              <h4>On-time delivery</h4>
+              <p>We move fast with structure and keep deadlines visible from start to finish.</p>
+            </div>
+
+            <div class="why-point">
+              <h4>Sharp execution</h4>
+              <p>Every visual, every frame, and every edit is designed to feel intentional.</p>
+            </div>
+
+            <div class="why-point">
+              <h4>Simple process</h4>
+              <p>No unnecessary confusion. Just clarity, updates, and steady production flow.</p>
+            </div>
+
+            <div class="why-point">
+              <h4>Creative discipline</h4>
+              <p>Bold ideas backed by planning, speed, and strong production control.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-right quote-card reveal">
+          <h3>“We fix what most production houses ignore — the timeline.”</h3>
+          <p>
+            Premium work matters. But premium work delivered late loses value. We make sure that does not happen.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="team">
+    <div class="container">
+      <div class="section-title-wrap reveal">
+        <div class="eyebrow">The Team</div>
+        <h2 class="section-title">Small team. Strong output. Real people.</h2>
+        <p class="section-desc">
+          Keep this section casual and genuine. Not corporate. Just the people behind the work.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <article class="team-card reveal">
+          <div class="team-image">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Team Member 1">
+          </div>
+          <div class="team-info">
+            <h3>Rahul Mehta</h3>
+            <div class="team-role">Creative Director</div>
+            <p>Leads visual direction, storytelling, and the creative energy of each project.</p>
+          </div>
+        </article>
+
+        <article class="team-card reveal">
+          <div class="team-image">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80" alt="Team Member 2">
+          </div>
+          <div class="team-info">
+            <h3>Aisha Khan</h3>
+            <div class="team-role">Producer</div>
+            <p>Keeps the workflow clear, structured, and moving on time from start to finish.</p>
+          </div>
+        </article>
+
+        <article class="team-card reveal">
+          <div class="team-image">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80" alt="Team Member 3">
+          </div>
+          <div class="team-info">
+            <h3>Arjun Sethi</h3>
+            <div class="team-role">Editor & Post</div>
+            <p>Turns raw footage into clean, cinematic, premium-looking final content.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="cta-box reveal">
+        <div>
+          <div class="eyebrow">Let’s Talk</div>
+          <h2>Have a project in mind?</h2>
+          <p>
+            Whether you need a brand film, ad shoot, launch video, or fast-moving social content,
+            we are ready to deliver with speed, clarity, and premium execution.
+          </p>
+        </div>
+
+        <div class="cta-actions">
+          <a
+            href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=Hi%2C%20I%20came%20across%20Timelines%20Productions%20and%20would%20like%20to%20discuss%20a%20project."
+            target="_blank"
+            rel="noopener"
+            class="btn btn-primary"
+          >
+            WhatsApp Us
+          </a>
+
+          <a href="mailto:hello@timelinesproductions.com" class="btn btn-light">
+            hello@timelinesproductions.com
+          </a>
+
+          <a href="#work" class="btn btn-secondary">View Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-wrap">
+        <p>© <span id="year"></span> Timelines Productions. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#work">Work</a>
+          <a href="#services">Services</a>
+          <a href="#why-us">Why Us</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating-whatsapp">
+    <a
+      href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=Hi%2C%20I%20came%20across%20Timelines%20Productions%20and%20would%20like%20to%20discuss%20a%20project."
+      target="_blank"
+      rel="noopener"
+      aria-label="Chat on WhatsApp"
+    >
+      ✆
+    </a>
+  </div>
+
+  <script>
+    const header = document.getElementById("siteHeader");
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 20) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("active");
+      menuToggle.textContent = mobileMenu.classList.contains("active") ? "✕" : "☰";
+    });
+
+    document.querySelectorAll(".mobile-menu a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    const revealEls = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach((el) => observer.observe(el));
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
