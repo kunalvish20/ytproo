@@ -1001,50 +1001,70 @@
       }
 
       .hero {
-        padding: 118px 0 58px;
+        min-height: 100svh;
+        padding: 100px 16px 48px;
+        align-items: flex-start;
+      }
+
+      .hero-content {
+        padding-top: 20px;
       }
 
       .hero-badge {
-        font-size: 10px;
-        padding: 10px 14px;
+        font-size: 11px;
+        padding: 10px 16px;
         gap: 8px;
-        margin-bottom: 16px;
+        margin-bottom: 18px;
       }
 
       .hero h1 {
-        font-size: 34px;
-        line-height: 1.02;
-        margin-bottom: 14px;
+        font-size: clamp(28px, 9vw, 40px);
+        line-height: 1.08;
+        margin-bottom: 16px;
+      }
+
+      .hero h1 br {
+        display: none;
       }
 
       .hero p {
-        font-size: 14px;
-        line-height: 1.7;
-        margin-bottom: 24px;
-        max-width: 95%;
+        font-size: 15px;
+        line-height: 1.65;
+        margin-bottom: 28px;
+        max-width: 100%;
       }
 
       .btn-group {
         width: 100%;
         flex-direction: column;
         align-items: stretch;
+        gap: 12px;
       }
 
       .btn-group .btn {
         width: 100%;
+        min-height: 50px;
+        font-size: 14px;
       }
 
       .hero-stats {
-        margin-top: 24px;
-        gap: 12px;
+        margin-top: 28px;
+        gap: 10px;
       }
 
       .stat-card {
-        padding: 18px 14px;
+        padding: 16px;
+        border-radius: 16px;
       }
 
       .stat-card h3 {
-        font-size: 22px;
+        font-size: 20px;
+        margin-bottom: 4px;
+      }
+
+      .stat-card p {
+        font-size: 12px;
+        line-height: 1.5;
       }
 
       .work-grid,
