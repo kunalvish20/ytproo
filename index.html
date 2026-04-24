@@ -129,6 +129,10 @@
       gap: 14px;
     }
 
+    .hero .btn-group {
+      gap: 16px;
+    }
+
     .btn {
       min-height: 54px;
       padding: 0 24px;
@@ -141,6 +145,11 @@
       transition: all var(--transition);
       letter-spacing: 0.02em;
       text-align: center;
+    }
+
+    .hero .btn-group .btn {
+      min-width: 170px;
+      padding: 0 28px;
     }
 
     .btn:hover {
@@ -1037,12 +1046,13 @@
       .btn-group {
         width: 100%;
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
         gap: 12px;
       }
 
       .btn-group .btn {
         width: 100%;
+        max-width: 340px;
         min-height: 50px;
         font-size: 14px;
       }
